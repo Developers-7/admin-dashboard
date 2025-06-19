@@ -14,4 +14,4 @@ If you are developing a production application, we recommend using TypeScript wi
 ### Node Version
    22.15.0
    
-#### yarn install
+#### npm install
