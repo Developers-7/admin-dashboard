@@ -15,3 +15,5 @@ If you are developing a production application, we recommend using TypeScript wi
    22.15.0
    
 #### npm install
+
+#### used React chartjs 
