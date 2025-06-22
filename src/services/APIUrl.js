@@ -14,3 +14,5 @@ export const REVENUE_URL = `${VITE_BASE_URL}/carts`;
 
 export const PRODUCT_URL = `${VITE_BASE_URL}/products`;
 export const CUSTOMER_URL = `${VITE_BASE_URL}/users`;
+
+export const MAIL_COMMENTS_URL = `${VITE_BASE_URL}/comments`;

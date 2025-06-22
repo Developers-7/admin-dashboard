@@ -88,7 +88,7 @@ const DashboardChart = () => {
 
 
     return (
-        <Card style={{ height: 400, marginTop: 30 }}>
+        <Card style={{ height: 300, marginTop: 30 }}>
             <Bar options={options} data={revenueData}/>
         </Card>
     )

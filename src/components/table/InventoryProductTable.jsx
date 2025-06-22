@@ -7,7 +7,7 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {Avatar, message, Rate, Table, Typography} from "antd";
+import {Avatar, message, Rate, Table} from "antd";
 import APICall from "../../services/APICall.js";
 
 const InventoryProductTable = () => {
@@ -19,8 +19,8 @@ const InventoryProductTable = () => {
         {
             title: 'Thumbnail',
             dataIndex: 'thumbnail',
-            render : (link) => {
-                return <Avatar src={link} />;
+            render: (link) => {
+                return <Avatar src={link}/>;
             }
         },
         {
@@ -34,7 +34,7 @@ const InventoryProductTable = () => {
         {
             title: 'Price',
             dataIndex: 'price',
-            render : (value) => {
+            render: (value) => {
                 return `$${value}`
             }
         },
@@ -45,7 +45,7 @@ const InventoryProductTable = () => {
         {
             title: 'Rating',
             dataIndex: 'rating',
-            render : (rating) => {
+            render: (rating) => {
                 return <Rate value={rating} disabled/>
             }
         },
@@ -61,14 +61,14 @@ const InventoryProductTable = () => {
     ]
 
     const getInventoryProducts = async () => {
-        try{
+        try {
             setLoading(true);
             const res = await APICall.getInventoryProducts();
-            console.log("Inventory : ",res.data);
+            console.log("Inventory : ", res.data);
             message.success("Product successfully added!");
             setDataSource(res.data.products);
             setLoading(false);
-        }catch(err){
+        } catch (err) {
             message.error(err.message);
         }
     }

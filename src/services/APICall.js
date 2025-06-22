@@ -7,7 +7,7 @@
  */
 
 import {
-    CUSTOMER_URL,
+    CUSTOMER_URL, MAIL_COMMENTS_URL,
     PRODUCT_DELETE_URL,
     PRODUCT_ORDER_URL,
     PRODUCT_URL,
@@ -36,11 +36,9 @@ export default class APICall {
         });
     };
 
-
     static getRevenue = () => {
         return PrivateAPI.get(REVENUE_URL);
     }
-
 
     static getInventoryProducts = () => {
         return PrivateAPI.get(PRODUCT_URL);
@@ -52,6 +50,10 @@ export default class APICall {
 
     static getCustomer = () => {
         return PrivateAPI.get(CUSTOMER_URL);
+    }
+
+    static getMailComment = () => {
+        return PrivateAPI.get(MAIL_COMMENTS_URL);
     }
 
 }

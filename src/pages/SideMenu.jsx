@@ -45,6 +45,8 @@ const SideMenu = () => {
     return (
         <div className="SideMenu">
             <Menu
+                style={{height: "100vh"}}
+                mode="vertical"
                 items={items}
                 onClick={(item) => {
                     navigate(item.key);
