@@ -43,7 +43,7 @@ const SideMenu = () => {
 
     const navigate = useNavigate();
     return (
-        <div className="SideMenu">
+        <div className="side_menu">
             <Menu
                 style={{height: "100vh"}}
                 mode="vertical"

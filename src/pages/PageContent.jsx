@@ -11,7 +11,7 @@ import PageRoute from "../routes/PageRoute.jsx";
 
 const PageContent = () => {
     return (
-        <div style={{display: "flex", flexDirection: "column" }} className="PageContent">
+        <div style={{display: "flex", flexDirection: "column" }} className="page_content">
             <PageRoute/>
         </div>
     );

@@ -11,7 +11,7 @@ const App = () => {
         <div className="App">
             <AppHeader/>
 
-            <Space className="SideMenu_PageContent">
+            <Space className="sideMenu_pageContent">
                 <SideMenu />
                 <PageContent/>
             </Space>

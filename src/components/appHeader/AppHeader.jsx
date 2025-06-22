@@ -55,7 +55,7 @@ const AppHeader = () => {
     },[])
 
     return (
-        <div className="AppHeader">
+        <div className="app_header">
             <Image
                 width="40px"
                 src="https://cdn-icons-png.flaticon.com/512/5432/5432747.png"
