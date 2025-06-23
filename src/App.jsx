@@ -1,21 +1,19 @@
 import React from 'react';
-import AppHeader from "./components/appHeader/AppHeader.jsx";
-import AppFooter from "./components/appFooter/AppFooter.jsx";
-import {Space} from "antd";
-import SideMenu from "./pages/SideMenu.jsx";
-import PageContent from "./pages/PageContent.jsx";
+import AppHeader from "./components/app-header/AppHeader.jsx";
+import AppFooter from "./components/app-footer/AppFooter.jsx";
 import "./App.css"
+import AppBody from "./components/app-body/AppBody.jsx";
 
 const App = () => {
+
     return (
         <div className="App">
+
+
+
             <AppHeader/>
 
-            <Space className="sideMenu_pageContent">
-                <SideMenu />
-                <PageContent/>
-            </Space>
-
+            <AppBody/>
 
             <AppFooter/>
         </div>

@@ -16,3 +16,7 @@ export const PRODUCT_URL = `${VITE_BASE_URL}/products`;
 export const CUSTOMER_URL = `${VITE_BASE_URL}/users`;
 
 export const MAIL_COMMENTS_URL = `${VITE_BASE_URL}/comments`;
+
+export const PRODUCT_GALLERY_URL = `${VITE_BASE_URL}/products/search?q=`;
+
+export const LOGIN_URL = `${VITE_BASE_URL}/auth/login`;

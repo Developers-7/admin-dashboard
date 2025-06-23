@@ -7,14 +7,18 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {Space, Typography} from "antd";
+import {Button, Space, Typography} from "antd";
 import DashboardCard from "../components/card/DashboardCard.jsx";
 import {DollarCircleOutlined, ShoppingCartOutlined, ShoppingOutlined, UserOutlined} from "@ant-design/icons";
 import DashboardTable from "../components/table/DashboardTable.jsx";
 import DashboardChart from "../components/chart/DashboardChart.jsx";
 import APICall from "../services/APICall.js";
+import {LOGIN_PATH} from "../routes/Slug.js";
+import {useNavigate} from "react-router-dom";
 
 const DashboardPage = () => {
+    const navigate = useNavigate();
+
     const [orders, setOrders] = useState(0);
     const [revenue, setRevenue] = useState(0);
     const [customers, setCustomers] = useState(0);
@@ -47,6 +51,14 @@ const DashboardPage = () => {
 
     }, [])
 
+    const logOut = () => {
+        //localStorage.removeItem("token");
+        //window.location.href = LOGIN_PATH;
+
+        localStorage.clear();
+        navigate(LOGIN_PATH);
+    }
+
     return (
         <div style={{display: "flex", flexDirection: "column", gap: 20}}>
            <Typography.Title level={4}>Dashboard</Typography.Title>
@@ -59,6 +71,9 @@ const DashboardPage = () => {
 
             <DashboardTable/>
             <DashboardChart/>
+
+            <Button onClick={logOut}>Logout</Button>
+
         </div>
     );
 };
