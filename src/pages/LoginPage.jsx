@@ -9,20 +9,22 @@
 import React from 'react';
 import {Button, Form, Input, message, Typography} from "antd";
 import APICall from "../services/APICall.js";
-import {useNavigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import {ROOT_PATH} from "../routes/Slug.js";
+import {TOKEN} from "../components/constant/ConstantVariables.js";
 
 const LoginPage = () => {
 
-    const navigate = useNavigate();
     const [form] = Form.useForm();
+
 
     const onFinish = async (value) => {
         try {
             const res = await APICall.login(value);
-            localStorage.setItem("token", res.data.accessToken);
+            localStorage.setItem(TOKEN, res.data.accessToken);
             message.success("Login successful!!");
-            navigate(ROOT_PATH);
+            window.location.reload();
+            <Navigate to={ROOT_PATH}/>
             form.resetFields();
 
         } catch (error) {
@@ -30,6 +32,9 @@ const LoginPage = () => {
             message.error("Login failed with error: ", error);
         }
     }
+
+   // if (localStorage.getItem(TOKEN)) return <Navigate to={ROOT_PATH}/>
+
 
     return (
         <div style={{

@@ -51,14 +51,6 @@ const DashboardPage = () => {
 
     }, [])
 
-    const logOut = () => {
-        //localStorage.removeItem("token");
-        //window.location.href = LOGIN_PATH;
-
-        localStorage.clear();
-        navigate(LOGIN_PATH);
-    }
-
     return (
         <div style={{display: "flex", flexDirection: "column", gap: 20}}>
            <Typography.Title level={4}>Dashboard</Typography.Title>
@@ -71,8 +63,6 @@ const DashboardPage = () => {
 
             <DashboardTable/>
             <DashboardChart/>
-
-            <Button onClick={logOut}>Logout</Button>
 
         </div>
     );

@@ -1,21 +1,21 @@
 import React from 'react';
-import AppHeader from "./components/app-header/AppHeader.jsx";
-import AppFooter from "./components/app-footer/AppFooter.jsx";
 import "./App.css"
-import AppBody from "./components/app-body/AppBody.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import LayoutPage from "./components/layout/LayoutPage.jsx";
+import {TOKEN} from "./components/constant/ConstantVariables.js";
 
 const App = () => {
+    const token = localStorage.getItem(TOKEN);
 
     return (
         <div className="App">
 
 
+            {
+                !!token ? <LayoutPage/> : <LoginPage/>
+            }
 
-            <AppHeader/>
 
-            <AppBody/>
-
-            <AppFooter/>
         </div>
     );
 };

@@ -12,4 +12,5 @@ export const ORDER_PATH = `${ROOT_PATH}orders`;
 export const CUSTOMER_PATH = `${ROOT_PATH}customers`;
 export const GALLERY_PATH = `${ROOT_PATH}gallery`;
 export const LOGIN_PATH = `${ROOT_PATH}login`;
+export const LAYOUT_PATH = `${ROOT_PATH}layout`;
 
