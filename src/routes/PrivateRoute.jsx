@@ -8,9 +8,10 @@
 
 import React from 'react';
 import {Navigate} from "react-router-dom";
+import {TOKEN} from "../components/constant/ConstantVariables.js";
 
 const PrivateRoute = ({children}) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(TOKEN);
     return token ? children : <Navigate to="/login" />;
 };
 

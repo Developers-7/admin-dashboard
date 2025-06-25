@@ -47,9 +47,16 @@ const LoginPage = () => {
         }}>
             <Typography.Title>Login</Typography.Title>
             <Form
+                layout="vertical"
                 form={form}
                 onFinish={onFinish}
                 style={{padding: "10px"}}
+                onKeyDown={(event) => {
+                    if(event.key === 'Enter'){
+                        event.preventDefault();
+                        form.submit();
+                    }
+                }}
             >
                 <Form.Item
                     label="UserName"

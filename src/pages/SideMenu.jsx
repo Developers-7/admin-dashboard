@@ -6,45 +6,53 @@
  * Email: zishan.softdev@gmail.com
  */
 
-import React from 'react';
-import {Button, Menu} from "antd";
-import {AppstoreOutlined, PictureOutlined, ShopOutlined, ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
-import {Navigate, useNavigate} from "react-router-dom";
-import {CUSTOMER_PATH, GALLERY_PATH, INVENTORY_PATH, LOGIN_PATH, ORDER_PATH, ROOT_PATH} from "../routes/Slug.js";
+import React, {useEffect, useState} from 'react';
+import {Menu} from "antd";
+import {Link, useLocation} from "react-router-dom";
+import {getIcon} from "../components/Icons.jsx";
+import Navs from "../routes/Navs.js";
+import {getSelectedMenu} from "../utils/GenericUtils.js";
 
 
 const SideMenu = () => {
 
-    const navigate = useNavigate();
-    const items = [
+    const location = useLocation();
+
+    const [selectedKeys, setSelectedKeys] = useState(getSelectedMenu(location));
+
+    useEffect(() => {
+        setSelectedKeys(getSelectedMenu(location));
+    },[location.pathname])
+
+    const getMenuItem = (item) => {
+        return (
+            {
+                key: item.key,
+                label: <>
+                    {item.title}
+                    {item.path && <Link to={item.path}/>}
+                </>,
+                icon: item.icon,
+            }
+        )
+    }
+
+    const bottomMenu = [
         {
-            label: 'Dashboard',
-            icon: <AppstoreOutlined/>,
-            key: ROOT_PATH,
+            key: "user",
+            label: "Emily Jonson",
+            icon: getIcon("user_circle"),
         },
+
         {
-            label: 'Inventory',
-            icon: <ShopOutlined/>,
-            key: INVENTORY_PATH,
+            key: "logout",
+            label: "Logout",
+            icon: getIcon("logout"),
+            onClick: () => logout()
         },
-        {
-            label: 'Orders',
-            icon: <ShoppingCartOutlined/>,
-            key: ORDER_PATH,
-        },
-        {
-            label: 'Customers',
-            icon: <UserOutlined/>,
-            key: CUSTOMER_PATH,
-        },
-        {
-            label: 'My Gallery',
-            icon: <PictureOutlined/>,
-            key: GALLERY_PATH,
-        }
     ]
 
-    const handleLogout = () => {
+    const logout = () => {
         localStorage.clear();
         window.location.reload();
     }
@@ -52,17 +60,24 @@ const SideMenu = () => {
         <div className="side_menu">
             <Menu
                 style={{height: "100vh"}}
-                mode="vertical"
-                items={items}
-                onClick={(item) => {
-                    navigate(item.key);
-                }}
-            >
-            </Menu>
-            <Button onClick={handleLogout} block>Logout</Button>
+                theme="light"
+                mode="inline"
+                onclick={(item)=>setSelectedKeys(item.key)}
+                items={Navs.map((item) => {
+                    return getMenuItem(item);
+                })}
+                selectedKeys={[selectedKeys]}
+            />
+
+
+            <Menu
+                theme="light"
+                mode="inline"
+                items={bottomMenu}
+            />
 
         </div>
-    );
-};
+    )
+}
 
 export default SideMenu;

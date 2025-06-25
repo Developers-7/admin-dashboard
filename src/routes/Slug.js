@@ -10,7 +10,7 @@ export const ROOT_PATH = "/";
 export const INVENTORY_PATH = `${ROOT_PATH}inventory`;
 export const ORDER_PATH = `${ROOT_PATH}orders`;
 export const CUSTOMER_PATH = `${ROOT_PATH}customers`;
-export const GALLERY_PATH = `${ROOT_PATH}gallery`;
+export const GALLERY_PATH = `${ROOT_PATH}my-gallery`;
 export const LOGIN_PATH = `${ROOT_PATH}login`;
 export const LAYOUT_PATH = `${ROOT_PATH}layout`;
 
