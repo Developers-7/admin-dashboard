@@ -14,3 +14,7 @@ export const GALLERY_PATH = `${ROOT_PATH}my-gallery`;
 export const LOGIN_PATH = `${ROOT_PATH}login`;
 export const LAYOUT_PATH = `${ROOT_PATH}layout`;
 
+export const PAGE_404_PATH = `${ROOT_PATH}page404`;
+export const PAGE_403_PATH = `${ROOT_PATH}page403`;
+export const PAGE_500_PATH = `${ROOT_PATH}page500`;
+

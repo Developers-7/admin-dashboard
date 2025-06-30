@@ -6,4 +6,8 @@
  * Email: zishan.softdev@gmail.com
  */
 
-export const TOKEN = "token"
+export const TOKEN = "token";
+
+export const REFRESH_TOKEN = "toppan-refresh-token";
+
+export const PROFILE = "toppan-profile";

@@ -6,15 +6,18 @@
  * Email: zishan.softdev@gmail.com
  */
 
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Menu} from "antd";
 import {Link, useLocation} from "react-router-dom";
 import {getIcon} from "../components/Icons.jsx";
 import Navs from "../routes/Navs.js";
 import {getSelectedMenu} from "../utils/GenericUtils.js";
+import Brand from "../components/layout/brand/Brand.jsx";
+import {AuthContext} from "../context/AuthContextProvider.jsx";
 
 
 const SideMenu = () => {
+    const authContext = useContext(AuthContext);
 
     const location = useLocation();
 
@@ -48,16 +51,13 @@ const SideMenu = () => {
             key: "logout",
             label: "Logout",
             icon: getIcon("logout"),
-            onClick: () => logout()
+            onClick: () => authContext.logout()
         },
     ]
 
-    const logout = () => {
-        localStorage.clear();
-        window.location.reload();
-    }
     return (
-        <div className="side_menu">
+        <div className="side_menu" style={{height: '100%'}}>
+            <Brand/>
             <Menu
                 style={{height: "100vh"}}
                 theme="light"

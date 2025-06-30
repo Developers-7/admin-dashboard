@@ -15,13 +15,29 @@ const instance = axios.create({
     }
 });
 
-instance.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+
+instance.interceptors.request.use(
+    (config) => {
+
+        if (!config.headers.Authorization) {
+            config.headers = {...config.headers};
+        }
+
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
     }
-    return config;
-});
+);
+
+instance.interceptors.response.use(
+    (res) => {
+        return res;
+    }, // If valid response
+    async (err) => {
+        return Promise.reject(err);
+    }
+);
 
 export default instance;
 

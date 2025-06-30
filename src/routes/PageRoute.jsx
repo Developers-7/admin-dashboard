@@ -5,29 +5,35 @@
  * Time: 10:52 AM
  * Email: zishan.softdev@gmail.com
  */
-
-import React from 'react';
-import {Route, Routes} from "react-router-dom";
 import {CUSTOMER_PATH, GALLERY_PATH, INVENTORY_PATH, ORDER_PATH, ROOT_PATH} from "./Slug.js";
-import DashboardPage from "../pages/DashboardPage.jsx";
-import InventoryPage from "../pages/InventoryPage.jsx";
-import OrderPage from "../pages/OrderPage.jsx";
-import CustomerPage from "../pages/CustomerPage.jsx";
-import MyGalleryPage from "../pages/MyGalleryPage.jsx";
-import PrivateRoute from "./PrivateRoute.jsx";
+import {lazy} from "react";
 
-const PageRoute = () => {
-    return (
-        <div>
-            <Routes>
-                <Route path={ROOT_PATH} element={<PrivateRoute><DashboardPage/></PrivateRoute>}/>
-                <Route path={INVENTORY_PATH} element={<PrivateRoute><InventoryPage/></PrivateRoute>}/>
-                <Route path={ORDER_PATH} element={<PrivateRoute><OrderPage/></PrivateRoute>}/>
-                <Route path={CUSTOMER_PATH} element={<PrivateRoute><CustomerPage/></PrivateRoute>}/>
-                <Route path={GALLERY_PATH} element={<PrivateRoute><MyGalleryPage/></PrivateRoute>}/>
-            </Routes>
-        </div>
-    );
-};
+const DashboardPage = lazy(() => import("../pages/DashboardPage"));
+const InventoryPage = lazy(() => import("../pages/InventoryPage"));
+const CustomerPage = lazy(() => import("../pages/CustomerPage"));
+const OrderPage = lazy(() => import("../pages/OrderPage"));
+const GalleryPage = lazy(() => import("../pages/MyGalleryPage"));
 
+const PageRoute = [
+    {
+        path: ROOT_PATH,
+        component: DashboardPage,
+    },
+    {
+        path: INVENTORY_PATH,
+        component: InventoryPage,
+    },
+    {
+        path: CUSTOMER_PATH,
+        component: CustomerPage,
+    },
+    {
+        path: ORDER_PATH,
+        component: OrderPage,
+    },
+    {
+        path: GALLERY_PATH,
+        component: GalleryPage,
+    }
+]
 export default PageRoute;

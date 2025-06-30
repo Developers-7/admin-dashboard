@@ -66,4 +66,8 @@ export default class APICall {
         return PublicAPI.post(LOGIN_URL, data);
     }
 
+    // static getUserProfile = () => {
+    //     return PrivateAPI.get();
+    // }
+
 }

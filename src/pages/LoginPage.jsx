@@ -6,34 +6,25 @@
  * Email: zishan.softdev@gmail.com
  */
 
-import React from 'react';
-import {Button, Form, Input, message, Typography} from "antd";
-import APICall from "../services/APICall.js";
+import React, {useContext} from 'react';
+import {Button, Form, Input, Typography} from "antd";
 import {Navigate} from "react-router-dom";
 import {ROOT_PATH} from "../routes/Slug.js";
-import {TOKEN} from "../components/constant/ConstantVariables.js";
+import {AuthContext} from "../context/AuthContextProvider.jsx";
+
 
 const LoginPage = () => {
+
+    const authContext = useContext(AuthContext);
 
     const [form] = Form.useForm();
 
 
-    const onFinish = async (value) => {
-        try {
-            const res = await APICall.login(value);
-            localStorage.setItem(TOKEN, res.data.accessToken);
-            message.success("Login successful!!");
-            window.location.reload();
-            <Navigate to={ROOT_PATH}/>
-            form.resetFields();
-
-        } catch (error) {
-            console.log("Login Error : ", error);
-            message.error("Login failed with error: ", error);
-        }
+    const onFinish = (value) => {
+        authContext.login(value);
     }
 
-   // if (localStorage.getItem(TOKEN)) return <Navigate to={ROOT_PATH}/>
+    if (authContext.isLogin) return <Navigate to={ROOT_PATH}/>
 
 
     return (
@@ -45,7 +36,7 @@ const LoginPage = () => {
             width: 500,
             height: 500
         }}>
-            <Typography.Title>Login</Typography.Title>
+            <Typography.Title>Login Form</Typography.Title>
             <Form
                 layout="vertical"
                 form={form}

@@ -7,12 +7,11 @@
  */
 
 import React from 'react';
-import {Navigate} from "react-router-dom";
-import {TOKEN} from "../components/constant/ConstantVariables.js";
+import {Navigate, Outlet} from 'react-router-dom';
+import {LOGIN_PATH} from "./Slug.js";
 
-const PrivateRoute = ({children}) => {
-    const token = localStorage.getItem(TOKEN);
-    return token ? children : <Navigate to="/login" />;
-};
+const PrivateRoute = ({isLogin}) => {
+    return (isLogin ? <Outlet/> : <Navigate to={LOGIN_PATH}/>);
+}
 
 export default PrivateRoute;
