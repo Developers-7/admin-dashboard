@@ -8,8 +8,13 @@
 
 import GlobalContextProvider from "./context/GlobalContextProvider.jsx";
 import AuthContextProvider from "./context/AuthContextProvider.jsx";
+import EmployeeContextProvider from "./context/EmployeeContextProvider.jsx";
+import RoleContextProvider from "./context/RoleContextProvider.jsx";
 
 export const providers = [
     GlobalContextProvider,
     AuthContextProvider,
+    EmployeeContextProvider,
+    RoleContextProvider,
+
 ]

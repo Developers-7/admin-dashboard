@@ -27,7 +27,7 @@ const SideMenu = () => {
         setSelectedKeys(getSelectedMenu(location));
     },[location.pathname])
 
-    const getMenuItem = (item) => {
+    const getSingleMenu = (item) => {
         return (
             {
                 key: item.key,
@@ -38,6 +38,21 @@ const SideMenu = () => {
                 icon: item.icon,
             }
         )
+    }
+
+    const getMultipleMenu = (item) => {
+        return (
+            {
+                key: item.key,
+                label: <div style={{fontSize: "14px"}}>{item.title}</div>,
+                icon: item.icon,
+                children: item.subMenu.map(childItem => getMenuItem(childItem))
+            }
+        )
+    }
+
+    const getMenuItem = (item) => {
+        return (item.subMenu ? getMultipleMenu(item) : getSingleMenu(item));
     }
 
     const bottomMenu = [

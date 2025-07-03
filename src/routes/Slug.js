@@ -18,3 +18,10 @@ export const PAGE_404_PATH = `${ROOT_PATH}page404`;
 export const PAGE_403_PATH = `${ROOT_PATH}page403`;
 export const PAGE_500_PATH = `${ROOT_PATH}page500`;
 
+
+export const LOGIN_NEED_HELP_PATH = `${ROOT_PATH}login-help`;
+
+
+export const EMPLOYEE_LIST_PATH = `${ROOT_PATH}employee-list`;
+export const ROLE_LIST_PATH = `${ROOT_PATH}role-list`;
+

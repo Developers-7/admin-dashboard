@@ -1,0 +1,25 @@
+/**
+ * Created by WebStorm.
+ * User: Zishan
+ * Date: 01 Jul 2025
+ * Time: 11:40 AM
+ * Email: zishan.softdev@gmail.com
+ */
+
+@use '../../assets/scss/colors' as *;
+
+.main_layout_form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background-color: $primary-color-shade;
+
+  .children_one{
+    height: 70%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -7,6 +7,8 @@
  */
 
 export const VITE_BASE_URL = import.meta.env.VITE_BASE_URL;
+export const VITE_BASE_URL_TWO = import.meta.env.VITE_BASE_URL_TWO;
+
 export const PRODUCT_ORDER_URL = `${VITE_BASE_URL}/carts/1`;
 export const PRODUCT_DELETE_URL = `${VITE_BASE_URL}/carts`;
 export const UPDATE_PRODUCT_URL = `${VITE_BASE_URL}/carts`;
@@ -20,3 +22,5 @@ export const MAIL_COMMENTS_URL = `${VITE_BASE_URL}/comments`;
 export const PRODUCT_GALLERY_URL = `${VITE_BASE_URL}/products/search?q=`;
 
 export const LOGIN_URL = `${VITE_BASE_URL}/auth/login`;
+
+ export const ROLE_TABLE_DATA_URL = `${VITE_BASE_URL_TWO}/todos`;
